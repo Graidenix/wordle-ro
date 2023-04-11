@@ -1,0 +1,121 @@
+*, *:before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  height: 100svh;
+  background-color: #eaeaea;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Ubuntu Mono", sans-serif;
+  margin: 0;
+  padding-block: 0.4em;
+}
+
+.container {
+  width: min(90%, 640px);
+  margin-inline: auto;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  margin-bottom: 2rem;
+  gap: 4px;
+}
+.grid .word {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+.grid .word .letter {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex-grow: 1;
+  max-width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: max(3vw, 20px);
+  font-family: "Ubuntu Mono", sans-serif;
+  background: #fff;
+}
+.grid .word .letter.found {
+  background-color: orange;
+  color: white;
+}
+.grid .word .letter.not-found {
+  background-color: gray;
+  color: white;
+}
+.grid .word .letter.right {
+  background-color: green;
+  color: white;
+}
+.grid .word .letter.found.right {
+  background-color: green;
+  color: white;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.keyboard .line {
+  display: flex;
+  gap: 4px;
+}
+.keyboard kbd {
+  display: flex;
+  cursor: pointer;
+  border: 1px outset #ccc;
+  border-radius: 4px;
+  font-size: max(3vw, 18px);
+  font-weight: 600;
+  padding: 0.4em;
+  text-transform: uppercase;
+  font-family: "Ubuntu Mono", sans-serif;
+  background: #fff;
+}
+.keyboard kbd.found {
+  background-color: orange;
+  color: white;
+}
+.keyboard kbd.not-found {
+  background-color: gray;
+  color: white;
+}
+.keyboard kbd.right {
+  background-color: green;
+  color: white;
+}
+.keyboard kbd.found.right {
+  background-color: green;
+  color: white;
+}
+.keyboard kbd.space {
+  padding-inline: 3rem;
+  color: white;
+  background: green;
+}
+.keyboard kbd.space:hover {
+  background-color: rgba(0, 100, 0, 0.9);
+}
+.keyboard kbd:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px #ccc;
+}
+
+/*# sourceMappingURL=styles.css.map */

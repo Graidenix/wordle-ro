@@ -1,0 +1,10 @@
+{
+  "name": "wordle",
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "start": "sass -w styles.scss styles.css"
+  },
+  "dependencies": {
+    "sass": "^1.61.0"
+  }
+}
