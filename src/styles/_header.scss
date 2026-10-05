@@ -1,0 +1,82 @@
+@use 'sass:list';
+
+$title-colors: var(--accent), var(--present), var(--correct), var(--blue), var(--purple), var(--accent);
+
+.header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 14px;
+  background: var(--key-bg);
+  box-shadow: 0 4px 0 var(--key-shadow);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--key-shadow);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  gap: clamp(3px, 1vw, 6px);
+  margin: 0;
+}
+
+.title__letter {
+  --tilt: -4deg;
+
+  display: grid;
+  place-items: center;
+  // Shrinks on narrow phones so the title fits between the two header buttons.
+  width: clamp(28px, 8vw, 40px);
+  height: clamp(28px, 8vw, 40px);
+  border-radius: clamp(8px, 2.2vw, 11px);
+  color: #fff;
+  font-size: clamp(1.05rem, 5vw, 1.5rem);
+  font-weight: 700;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+  animation: bob 3s ease-in-out infinite;
+
+  &:nth-child(even) {
+    --tilt: 4deg;
+  }
+
+  @for $i from 1 through list.length($title-colors) {
+    &:nth-child(#{$i}) {
+      background: list.nth($title-colors, $i);
+      animation-delay: ($i - 1) * -0.4s;
+    }
+  }
+
+  &:nth-child(2) {
+    color: var(--present-ink);
+  }
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: clamp(0.8rem, 3.5vw, 1rem);
+  color: var(--ink-soft);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}

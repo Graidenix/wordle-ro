@@ -1,0 +1,94 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  font-family: 'Fredoka', system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 12%, var(--bg-blob-1) 0, transparent 32%),
+    radial-gradient(circle at 92% 22%, var(--bg-blob-2) 0, transparent 34%),
+    radial-gradient(circle at 50% 100%, var(--bg-blob-3) 0, transparent 42%);
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+}
+
+.game {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 16px;
+  padding: 0.75em 1.6em;
+  box-shadow: 0 5px 0 var(--accent-shadow);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--accent-shadow);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+  }
+}
+
+.error-fallback {
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  min-height: 100svh;
+  align-content: center;
+  text-align: center;
+  padding: 16px;
+
+  &__icon {
+    color: var(--present);
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}

@@ -1,96 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-    <title>WORDLE - Romana</title>
-    <link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Wordle în română</title>
+  <meta name="description" content="Wordle în limba română: ghicește cuvântul de 5 litere din 6 încercări.">
+  <link rel="canonical" href="https://wordle.odajiu.eu/">
+
+  <meta name="theme-color" content="#fff4e6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1d1838" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wordle în română">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:url" content="https://wordle.odajiu.eu/">
+  <meta property="og:title" content="Wordle în română">
+  <meta property="og:description" content="Ghicește cuvântul de 5 litere din 6 încercări.">
+  <meta property="og:image" content="https://wordle.odajiu.eu/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wordle în limba română: tabla de joc cu litere colorate">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wordle în română">
+  <meta name="twitter:description" content="Ghicește cuvântul de 5 litere din 6 încercări.">
+  <meta name="twitter:image" content="https://wordle.odajiu.eu/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <h1>WORDLE</h1>
-    <div class="grid">
-        <div class="word">
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-        </div>
-        <div class="word">
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-        </div>
-        <div class="word">
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-        </div>
-        <div class="word">
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-        </div>
-        <div class="word">
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-            <div class="letter"></div>
-        </div>
-    </div>
-    <div class="keyboard">
-        <div class="line">
-            <kbd data-letter="Q">Q</kbd>
-            <kbd data-letter="W">W</kbd>
-            <kbd data-letter="E">E</kbd>
-            <kbd data-letter="R">R</kbd>
-            <kbd data-letter="T">T</kbd>
-            <kbd data-letter="Y">Y</kbd>
-            <kbd data-letter="U">U</kbd>
-            <kbd data-letter="I">I</kbd>
-            <kbd data-letter="O">O</kbd>
-            <kbd data-letter="P">P</kbd>
-        </div>
-        <div class="line">
-            <kbd data-letter="A">A</kbd>
-            <kbd data-letter="S">S</kbd>
-            <kbd data-letter="D">D</kbd>
-            <kbd data-letter="F">F</kbd>
-            <kbd data-letter="G">G</kbd>
-            <kbd data-letter="H">H</kbd>
-            <kbd data-letter="J">J</kbd>
-            <kbd data-letter="K">K</kbd>
-            <kbd data-letter="L">L</kbd>
-        </div>
-        <div class="line">
-            <kbd data-letter="Z">Z</kbd>
-            <kbd data-letter="X">X</kbd>
-            <kbd data-letter="C">C</kbd>
-            <kbd data-letter="V">V</kbd>
-            <kbd data-letter="B">B</kbd>
-            <kbd data-letter="N">N</kbd>
-            <kbd data-letter="M">M</kbd>
-            <kbd data-letter="Backspace">←</kbd>
-        </div>
-        <div class="line">
-            <kbd class="space" data-letter="Enter">Submit Word</kbd>
-        </div>
-    </div>
-</div>
-<script type="module" src="index.mjs"></script>
-
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

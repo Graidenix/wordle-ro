@@ -1,0 +1,54 @@
+:root {
+  --bg: #fff4e6;
+  --bg-blob-1: #ffd6e7;
+  --bg-blob-2: #c9f2ff;
+  --bg-blob-3: #fff1a8;
+  --ink: #2b2250;
+  --ink-soft: #6b6390;
+  --surface: #ffffff;
+  --surface-border: #e6defa;
+  --correct: #18c29c;
+  --correct-shadow: #0f8f72;
+  --present: #ffc533;
+  --present-shadow: #d99a00;
+  --present-ink: #3d2a00;
+  --absent: #a39dc0;
+  --absent-shadow: #7d769e;
+  --accent: #ff5c8a;
+  --accent-shadow: #d63a69;
+  --blue: #5b8cff;
+  --purple: #a66cff;
+  --key-bg: #ffffff;
+  --key-shadow: #d6cdf2;
+  --backdrop: rgba(43, 34, 80, 0.45);
+
+  color-scheme: light;
+}
+
+@mixin dark-tokens {
+  --bg: #1d1838;
+  --bg-blob-1: #44295e;
+  --bg-blob-2: #1f3f66;
+  --bg-blob-3: #4a3a20;
+  --ink: #f5f0ff;
+  --ink-soft: #b7aedb;
+  --surface: #2a2350;
+  --surface-border: #463c7a;
+  --absent: #5d5687;
+  --absent-shadow: #403a66;
+  --key-bg: #3a3170;
+  --key-shadow: #231c4a;
+  --backdrop: rgba(10, 6, 30, 0.6);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-tokens;
+  }
+}
+
+:root[data-theme='dark'] {
+  @include dark-tokens;
+}

@@ -1,0 +1,81 @@
+$flip-duration: 0.6s;
+$flip-stagger: 0.25s;
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  // Shrinks with the viewport height so board and keyboard always fit without scrolling.
+  width: min(340px, 100%, calc((100svh - 360px) * 5 / 6));
+  margin-block: auto;
+  aspect-ratio: 5 / 6;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  perspective: 600px;
+
+  &--shake {
+    animation: shake 0.45s ease;
+  }
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--surface-border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 4px 0 var(--surface-border);
+  color: var(--ink);
+  font-size: clamp(1.4rem, 7vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+
+  &[data-state='filled'] {
+    border-color: var(--accent);
+    animation: pop 0.15s ease;
+  }
+
+  &[data-state='correct'] {
+    --tile-bg: var(--correct);
+    --tile-shadow: var(--correct-shadow);
+    --tile-ink: #fff;
+  }
+
+  &[data-state='present'] {
+    --tile-bg: var(--present);
+    --tile-shadow: var(--present-shadow);
+    --tile-ink: var(--present-ink);
+  }
+
+  &[data-state='absent'] {
+    --tile-bg: var(--absent);
+    --tile-shadow: var(--absent-shadow);
+    --tile-ink: #fff;
+  }
+
+  &[data-state='correct'],
+  &[data-state='present'],
+  &[data-state='absent'] {
+    background: var(--tile-bg);
+    border-color: var(--tile-bg);
+    box-shadow: 0 4px 0 var(--tile-shadow);
+    color: var(--tile-ink);
+  }
+}
+
+@for $i from 1 through 5 {
+  .row--revealed .tile:nth-child(#{$i}) {
+    animation: flip $flip-duration ease backwards ($i - 1) * $flip-stagger;
+  }
+
+  .row--winning .tile:nth-child(#{$i}) {
+    animation:
+      flip $flip-duration ease backwards ($i - 1) * $flip-stagger,
+      bounce 0.6s ease 4 * $flip-stagger + $flip-duration + ($i - 1) * 0.1s;
+  }
+}

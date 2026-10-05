@@ -1,0 +1,94 @@
+// Matches the end of the board's flip so keys don't spoil the result early.
+$reveal-delay: 1.5s;
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  user-select: none;
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+
+.key {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  min-width: 0;
+  max-width: 44px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--key-bg);
+  box-shadow: 0 4px 0 var(--key-shadow);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+
+  &:hover {
+    filter: brightness(0.97);
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--key-shadow);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  &--wide {
+    flex: 1.6;
+    max-width: 76px;
+  }
+
+  &--accent {
+    --key-bg: var(--accent);
+    --key-shadow: var(--accent-shadow);
+
+    color: #fff;
+  }
+
+  &[data-state='correct'],
+  &[data-state='present'],
+  &[data-state='absent'] {
+    transition:
+      transform 0.08s ease,
+      background-color 0.3s ease $reveal-delay,
+      box-shadow 0.3s ease $reveal-delay,
+      color 0.3s ease $reveal-delay;
+  }
+
+  &[data-state='correct'] {
+    --key-bg: var(--correct);
+    --key-shadow: var(--correct-shadow);
+
+    color: #fff;
+  }
+
+  &[data-state='present'] {
+    --key-bg: var(--present);
+    --key-shadow: var(--present-shadow);
+
+    color: var(--present-ink);
+  }
+
+  &[data-state='absent'] {
+    --key-bg: var(--absent);
+    --key-shadow: var(--absent-shadow);
+
+    color: #fff;
+  }
+}

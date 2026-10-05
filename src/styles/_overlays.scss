@@ -1,0 +1,257 @@
+$result-delay: 1.8s;
+
+.toast-region {
+  position: fixed;
+  top: 112px;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  padding: 0.65em 1.3em;
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.18);
+  color: var(--bg);
+  font-weight: 600;
+  white-space: nowrap;
+  animation: toast-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--backdrop);
+  backdrop-filter: blur(4px);
+  animation: fade-in 0.2s ease backwards;
+
+  &--delayed {
+    animation-delay: $result-delay;
+  }
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 380px);
+  max-height: calc(100svh - 32px);
+  overflow-y: auto;
+  padding: 28px 24px;
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 10px 0 var(--surface-border);
+  text-align: center;
+  animation: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+
+  &--delayed {
+    animation-delay: $result-delay;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--surface-border);
+    color: var(--ink);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &__badge {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-inline: auto;
+    border-radius: 20px;
+    color: #fff;
+    animation: wiggle 0.8s ease-in-out $result-delay + 0.4s 2;
+
+    &[data-result='won'] {
+      background: var(--correct);
+      box-shadow: 0 4px 0 var(--correct-shadow);
+    }
+
+    &[data-result='lost'] {
+      background: var(--accent);
+      box-shadow: 0 4px 0 var(--accent-shadow);
+    }
+  }
+
+  &__title {
+    margin: 12px 0 4px;
+    color: var(--accent);
+    font-size: 2rem;
+  }
+
+  &__text {
+    margin: 0 0 16px;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+  }
+
+  &__answer {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  &__tile {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    &[data-state='correct'] {
+      background: var(--correct);
+      box-shadow: 0 3px 0 var(--correct-shadow);
+    }
+
+    &[data-state='absent'] {
+      background: var(--accent);
+      box-shadow: 0 3px 0 var(--accent-shadow);
+    }
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 0 0 20px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 4px;
+    border-radius: 14px;
+    background: var(--bg);
+  }
+
+  // <dl> needs <dt> before <dd>; order puts the number on top visually.
+  &__value {
+    order: 1;
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__label {
+    order: 2;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+.distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+
+  &__title {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__attempt {
+    width: 12px;
+    font-weight: 600;
+  }
+
+  &__bar {
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: var(--absent);
+    color: #fff;
+    font-weight: 600;
+    text-align: right;
+    transition: width 0.4s ease;
+
+    &[data-highlighted='true'] {
+      background: var(--correct);
+    }
+  }
+}
+
+.help {
+  margin-bottom: 24px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.45;
+  text-align: left;
+
+  p {
+    margin: 0 0 12px;
+  }
+
+  &__example {
+    margin-bottom: 14px;
+  }
+
+  &__tiles {
+    display: grid;
+    grid-template-columns: repeat(5, 40px);
+    gap: 5px;
+    margin-bottom: 6px;
+
+    .tile {
+      height: 40px;
+      border-width: 2px;
+      border-radius: 10px;
+      box-shadow: 0 3px 0 var(--surface-border);
+      font-size: 1.3rem;
+    }
+  }
+
+  & &__description {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  & &__note {
+    margin: 16px 0 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+}
