@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🟩 Wordle în română
+# 🟩 Wordlero
 
 **Ghicește cuvântul de 5 litere din 6 încercări: a playful Romanian take on Wordle, made for phones and desktop.**
 
@@ -9,7 +9,7 @@
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-SCSS-CC6699?logo=sass&logoColor=white)
 
-<img src="docs/screenshot.png" alt="Wordle în română mid-game: three guesses colored green, yellow and grey, with the on-screen keyboard tinted to match" width="320">
+<img src="docs/screenshot.png" alt="Wordlero mid-game: three guesses colored green, yellow and grey, with the on-screen keyboard tinted to match" width="320">
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## About
 
-Wordle în română is the classic five-letter word game with a Romanian word list. Each game picks a random word, and every guess colors its letters to show how close you are. It's built with React and TypeScript, with all the game rules in one pure reducer. There's no backend: your stats live in the browser.
+Wordlero is Wordle în română: the classic five-letter word game with a Romanian word list. Each game picks a random word, and every guess colors its letters to show how close you are. It's built with React and TypeScript, with all the game rules in one pure reducer. There's no backend: your stats live in the browser.
 
 ## Features
 
@@ -51,7 +51,7 @@ pnpm install
 pnpm dev
 ```
 
-Open the URL Vite prints and start guessing, or play it live at **[wordle.odajiu.eu](https://wordle.odajiu.eu/)**.
+Open the URL Vite prints and start guessing, or play it live at **[wordlero.odajiu.eu](https://wordlero.odajiu.eu/)**.
 
 ### Scripts
 

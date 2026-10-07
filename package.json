@@ -1,5 +1,5 @@
 {
-  "name": "wordle",
+  "name": "wordlero",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.9.1",

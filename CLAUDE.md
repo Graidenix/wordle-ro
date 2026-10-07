@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Romanian-language Wordle clone. React 19 + TypeScript, SCSS, built with Vite. No tests.
+Wordlero: Romanian-language Wordle clone. React 19 + TypeScript, SCSS, built with Vite. No tests.
 
 ## Commands
 
@@ -37,7 +37,7 @@ Romanian-language Wordle clone. React 19 + TypeScript, SCSS, built with Vite. No
 
 - UI icons come from `@phosphor-icons/react`; use the `*Icon` exports (e.g. `ChartBarIcon`). The names without the suffix are deprecated. No emojis in the UI.
 - `public/` holds the favicon (`favicon.svg`, `favicon-32.png`), PWA icons (`manifest.webmanifest`, `icon-*.png`, `apple-touch-icon.png`) and `og-image.png` (1200×630). The PNGs were rendered once with headless Chrome; there's no generator script in the repo.
-- Production URL is `https://wordle.odajiu.eu`; the canonical and OG/Twitter tags in `index.html` hardcode it.
+- Production URL is `https://wordlero.odajiu.eu`; the canonical and OG/Twitter tags in `index.html` hardcode it.
 
 ## Code conventions
 

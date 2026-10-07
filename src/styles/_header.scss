@@ -1,6 +1,6 @@
 @use 'sass:list';
 
-$title-colors: var(--accent), var(--present), var(--correct), var(--blue), var(--purple), var(--accent);
+$title-colors: var(--accent), var(--present), var(--correct), var(--blue), var(--purple), var(--accent), var(--present), var(--correct);
 
 .header {
   display: grid;
@@ -48,11 +48,11 @@ $title-colors: var(--accent), var(--present), var(--correct), var(--blue), var(-
   display: grid;
   place-items: center;
   // Shrinks on narrow phones so the title fits between the two header buttons.
-  width: clamp(28px, 8vw, 40px);
-  height: clamp(28px, 8vw, 40px);
-  border-radius: clamp(8px, 2.2vw, 11px);
+  width: clamp(20px, 6vw, 40px);
+  height: clamp(20px, 6vw, 40px);
+  border-radius: clamp(6px, 1.8vw, 11px);
   color: #fff;
-  font-size: clamp(1.05rem, 5vw, 1.5rem);
+  font-size: clamp(0.85rem, 3.8vw, 1.5rem);
   font-weight: 700;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
   animation: bob 3s ease-in-out infinite;
@@ -68,7 +68,8 @@ $title-colors: var(--accent), var(--present), var(--correct), var(--blue), var(-
     }
   }
 
-  &:nth-child(2) {
+  &:nth-child(2),
+  &:nth-child(7) {
     color: var(--present-ink);
   }
 }

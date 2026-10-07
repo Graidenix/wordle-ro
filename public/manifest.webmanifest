@@ -1,6 +1,6 @@
 {
-  "name": "Wordle în română",
-  "short_name": "Wordle RO",
+  "name": "Wordlero",
+  "short_name": "Wordlero",
   "description": "Ghicește cuvântul de 5 litere din 6 încercări.",
   "lang": "ro",
   "start_url": "/",

@@ -1,7 +1,7 @@
 import { ChartBarIcon, QuestionIcon } from '@phosphor-icons/react';
 import IconButton from './IconButton';
 
-const TITLE_LETTERS = 'WORDLE'.split('');
+const TITLE_LETTERS = 'WORDLERO'.split('');
 
 interface Props {
   onOpenHelp: () => void;
@@ -15,9 +15,9 @@ const Header: React.FC<Props> = (props) => {
     <header className="header">
       <IconButton icon={QuestionIcon} label="Cum se joacă" onClick={onOpenHelp} />
       <div className="header__brand">
-        <h1 className="title" aria-label="Wordle">
-          {TITLE_LETTERS.map((letter) => (
-            <span key={letter} className="title__letter" aria-hidden="true">
+        <h1 className="title" aria-label="Wordlero">
+          {TITLE_LETTERS.map((letter, index) => (
+            <span key={index} className="title__letter" aria-hidden="true">
               {letter}
             </span>
           ))}
